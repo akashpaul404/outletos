@@ -20,7 +20,7 @@ export default function AppLayout() {
             <CommandPalette />
 
             <Sidebar />
-            <div className="flex flex-1 flex-col overflow-hidden">
+            <div className="flex flex-1 flex-col overflow-hidden bg-[#f6f6f8] dark:bg-[#101122]">
                 <Header title={title} />
                 <main className="flex-1 overflow-auto p-8 bg-[#f6f6f8] dark:bg-[#101122]">
                     <Outlet />
