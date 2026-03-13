@@ -104,9 +104,9 @@ export default function Sidebar() {
                         to={item.to}
                         className={({ isActive }) =>
                             cn(
-                                "relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                                "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
                                 isActive
-                                    ? "bg-primary dark:bg-primary/10 text-white dark:text-primary"
+                                    ? "bg-primary text-white"
                                     : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white",
                                 collapsed && "justify-center px-2"
                             )
@@ -136,15 +136,6 @@ export default function Sidebar() {
                                         </motion.span>
                                     )}
                                 </AnimatePresence>
-                                {/* Active indicator */}
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="activeIndicator"
-                                        className="absolute left-0 h-8 w-1 rounded-r-full bg-primary"
-                                        initial={false}
-                                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                                    />
-                                )}
                             </motion.div>
                         )}
                     </NavLink>
