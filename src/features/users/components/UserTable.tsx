@@ -80,19 +80,19 @@ export default function UserTable({
                 <table className="w-full">
                     <thead>
                         <tr className="border-b border-slate-200 dark:border-white/10 text-left">
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest">
                                 User
                             </th>
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest">
                                 Role
                             </th>
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest">
                                 Status
                             </th>
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest">
                                 Created
                             </th>
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest text-right">
                                 Actions
                             </th>
                         </tr>
@@ -117,7 +117,7 @@ export default function UserTable({
                                         </div>
                                         <div>
                                             <div className="font-medium text-slate-900 dark:text-white">{user.name}</div>
-                                            <div className="text-xs text-slate-500">
+                                            <div className="text-xs text-slate-600 dark:text-slate-500">
                                                 {user.email}
                                             </div>
                                         </div>
@@ -133,13 +133,13 @@ export default function UserTable({
                                         disabled={!canToggleStatus(user)}
                                     />
                                 </td>
-                                <td className="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                                <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-500">
                                     {user.createdAt}
                                 </td>
                                 <td className="px-6 py-4 text-right">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5">
+                                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5">
                                                 <MoreHorizontal className="h-4 w-4" />
                                             </Button>
                                         </DropdownMenuTrigger>
@@ -147,7 +147,7 @@ export default function UserTable({
                                             <DropdownMenuItem
                                                 onClick={() => onEdit(user)}
                                                 disabled={!canEdit(user)}
-                                                className="text-slate-600 dark:text-slate-300 focus:bg-slate-100/80 dark:focus:bg-white/5 focus:text-slate-900 dark:focus:text-white"
+                                                className="text-slate-700 dark:text-slate-300 focus:bg-slate-100/80 dark:focus:bg-white/5 focus:text-slate-900 dark:focus:text-white"
                                             >
                                                 <Pencil className="mr-2 h-4 w-4" />
                                                 Edit

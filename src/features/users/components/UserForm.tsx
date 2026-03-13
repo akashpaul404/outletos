@@ -94,19 +94,19 @@ export default function UserForm({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px] glass-card border-white/10">
         <DialogHeader>
-          <DialogTitle className="text-white">
+          <DialogTitle className="text-slate-900 dark:text-white">
             {user ? "Edit User" : "Create New User"}
           </DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-slate-300">Name</Label>
+            <Label htmlFor="name" className="text-slate-700 dark:text-slate-300">Name</Label>
             <Input
               id="name"
               placeholder="Enter user name"
               {...register("name")}
               disabled={isLoading}
-              className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:ring-primary/50"
+              className="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/50"
             />
             {errors.name && (
               <p className="text-sm text-red-400">{errors.name.message}</p>
@@ -114,14 +114,14 @@ export default function UserForm({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-slate-300">Email</Label>
+            <Label htmlFor="email" className="text-slate-700 dark:text-slate-300">Email</Label>
             <Input
               id="email"
               type="email"
               placeholder="Enter email address"
               {...register("email")}
               disabled={isLoading}
-              className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:ring-primary/50"
+              className="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-primary/50"
             />
             {errors.email && (
               <p className="text-sm text-red-400">{errors.email.message}</p>
@@ -129,12 +129,12 @@ export default function UserForm({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="role" className="text-slate-300">Role</Label>
+            <Label htmlFor="role" className="text-slate-700 dark:text-slate-300">Role</Label>
             <Select
               id="role"
               {...register("role")}
               disabled={isLoading || availableRoles.length === 0}
-              className="bg-white/5 border-white/10 text-white"
+              className="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white"
             >
               {availableRoles.map((role) => (
                 <option key={role} value={role}>
@@ -148,7 +148,7 @@ export default function UserForm({
           </div>
 
           <div className="flex items-center justify-between">
-            <Label htmlFor="status" className="text-slate-300">Active Status</Label>
+            <Label htmlFor="status" className="text-slate-700 dark:text-slate-300">Active Status</Label>
             <Switch
               checked={status === "active"}
               onCheckedChange={(checked) =>
@@ -164,7 +164,7 @@ export default function UserForm({
               variant="outline"
               onClick={() => onOpenChange(false)}
               disabled={isLoading}
-              className="border-white/20 text-slate-300 hover:bg-white/5 hover:text-white"
+              className="border border-slate-200 dark:border-white/20 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white"
             >
               Cancel
             </Button>

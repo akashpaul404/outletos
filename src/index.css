@@ -61,52 +61,52 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* Glass card — light mode */
+/* ===== BLOBS ===== */
+.blob {
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+/* ===== GLOWING ORBS (dark only) ===== */
+.glowing-orb {
+  filter: blur(80px);
+  opacity: 0.35;
+}
+
+/* ===== GLASS CARD ===== */
 .glass-card {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
-
-/* Glass card — dark mode override */
 .dark .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Glass sidebar — light */
+/* ===== GLASS SIDEBAR ===== */
 .glass-sidebar {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(100, 103, 242, 0.1);
+  border-right: 1px solid rgba(100, 103, 242, 0.12);
 }
-
-/* Glass sidebar — dark */
 .dark .glass-sidebar {
-  background: rgba(16, 17, 34, 0.8);
+  background: rgba(16, 17, 34, 0.85);
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Glass header — light */
+/* ===== GLASS HEADER ===== */
 .glass-header {
-  background: rgba(246, 246, 248, 0.8);
+  background: rgba(246, 246, 248, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
 }
-
-/* Glass header — dark */
 .dark .glass-header {
-  background: rgba(16, 17, 34, 0.5);
+  background: rgba(16, 17, 34, 0.6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Glowing orb (login page) */
-.glowing-orb {
-  filter: blur(80px);
-  opacity: 0.4;
 }
 
 /* Gradient text */

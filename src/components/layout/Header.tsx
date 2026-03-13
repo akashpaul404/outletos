@@ -55,7 +55,7 @@ export default function Header({ title }: HeaderProps) {
                 <CommandBadge />
 
                 {/* Dark Mode Toggle */}
-                <Button variant="ghost" size="icon" onClick={toggleDarkMode} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-white/5">
+                <Button variant="ghost" size="icon" onClick={toggleDarkMode} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5">
                     {isDark ? (
                         <Sun className="h-5 w-5" />
                     ) : (

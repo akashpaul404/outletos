@@ -51,19 +51,19 @@ export default function Login() {
     return (
         <div className="min-h-screen relative overflow-hidden flex items-center justify-center bg-[#f6f6f8] dark:bg-[#0a0a16]">
             {/* Background Blobs - Light Mode */}
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 blob rounded-full" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-400/40 blob rounded-full" />
-            <div className="absolute top-[20%] right-[15%] w-[20%] h-[20%] bg-purple-200/50 blob rounded-full" />
+            <div className="pointer-events-none absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 blob rounded-full" />
+            <div className="pointer-events-none absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-400/40 blob rounded-full" />
+            <div className="pointer-events-none absolute top-[20%] right-[15%] w-[20%] h-[20%] bg-purple-200/50 blob rounded-full" />
             {/* Background Orbs - Dark Mode */}
-            <div className="hidden dark:block absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary glowing-orb rounded-full" />
-            <div className="hidden dark:block absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-500 glowing-orb rounded-full" />
-            <div className="hidden dark:block absolute top-[20%] right-[15%] w-[20%] h-[20%] bg-purple-600 glowing-orb rounded-full" />
+            <div className="pointer-events-none hidden dark:block absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary glowing-orb rounded-full" />
+            <div className="pointer-events-none hidden dark:block absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-cyan-500 glowing-orb rounded-full" />
+            <div className="pointer-events-none hidden dark:block absolute top-[20%] right-[15%] w-[20%] h-[20%] bg-purple-600 glowing-orb rounded-full" />
 
             <main className="relative z-10 w-full max-w-6xl px-6 py-12 lg:flex lg:items-center lg:gap-12">
                 {/* Left Side: Branding */}
                 <div className="hidden lg:flex flex-col flex-1 space-y-8">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+                        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-slate-900 dark:text-white">
                             <svg className="w-6 h-6" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                                 <path clipRule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fillRule="evenodd" />
                             </svg>
@@ -89,7 +89,7 @@ export default function Login() {
                         className="glass-card rounded-xl p-8 lg:p-10 shadow-2xl"
                     >
                         <div className="lg:hidden flex items-center gap-3 mb-8">
-                            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+                            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-slate-900 dark:text-white">
                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                                     <path clipRule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fillRule="evenodd" />
                                 </svg>

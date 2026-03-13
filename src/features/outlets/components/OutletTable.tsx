@@ -37,19 +37,19 @@ export default function OutletTable({ outlets, onEdit, onDelete }: OutletTablePr
                 <table className="w-full">
                     <thead>
                         <tr className="border-b border-slate-200 dark:border-white/10 text-left">
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                                 Name
                             </th>
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest">
                                 Location
                             </th>
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest">
                                 Status
                             </th>
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest text-right">
                                 Revenue
                             </th>
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest text-right">
                                 Actions
                             </th>
                         </tr>
@@ -65,11 +65,11 @@ export default function OutletTable({ outlets, onEdit, onDelete }: OutletTablePr
                             >
                                 <td className="px-6 py-4">
                                     <div className="font-medium text-slate-900 dark:text-white">{outlet.name}</div>
-                                    <div className="text-xs text-slate-500">
+                                    <div className="text-xs text-slate-600 dark:text-slate-500">
                                         Created {outlet.createdAt}
                                     </div>
                                 </td>
-                                <td className="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                                <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-500">
                                     {outlet.location}
                                 </td>
                                 <td className="px-6 py-4">

@@ -215,7 +215,7 @@ export default function Dashboard() {
                                     <span className="text-rose-500 font-bold">{kpi.change}%</span>
                                 </>
                             )}
-                            <span className="text-slate-400 dark:text-slate-500">vs last month</span>
+                            <span className="text-slate-600 dark:text-slate-500">vs last month</span>
                         </div>
                     </motion.div>
                 ))}
@@ -342,10 +342,10 @@ export default function Dashboard() {
                     <table className="w-full">
                         <thead>
                             <tr className="border-b border-slate-100 dark:border-white/5 text-left">
-                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-400">Name</th>
-                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-400">Location</th>
-                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-400">Status</th>
-                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-400 text-right">Revenue</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Name</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Location</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Status</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 text-right">Revenue</th>
                             </tr>
                         </thead>
                         <tbody>

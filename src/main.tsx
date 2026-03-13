@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
       toastOptions={{
         classNames: {
           toast: 'rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-[#101122] shadow-lg backdrop-blur-xl',
-          description: 'text-slate-500 dark:text-slate-400',
+          description: 'text-slate-600 dark:text-slate-500',
         },
       }}
     />

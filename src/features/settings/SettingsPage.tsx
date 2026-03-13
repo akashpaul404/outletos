@@ -65,7 +65,7 @@ export default function SettingsPage() {
                             "px-6 py-2 rounded-full text-sm font-semibold transition-colors",
                             activeTab === tab.id
                                 ? "bg-primary text-white shadow-md shadow-primary/20"
-                                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
                         )}
                     >
                         <tab.icon className="h-4 w-4" />

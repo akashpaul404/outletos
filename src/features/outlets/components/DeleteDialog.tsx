@@ -33,9 +33,9 @@ export default function DeleteDialog({
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="sm:max-w-[425px] glass-card border-white/10">
                 <DialogHeader>
-                    <DialogTitle className="text-red-400">Delete Outlet</DialogTitle>
-                    <DialogDescription className="text-slate-400">
-                        Are you sure you want to delete <span className="font-medium text-white">{outletName}</span>?
+                    <DialogTitle className="text-red-600 dark:text-red-400">Delete Outlet</DialogTitle>
+                    <DialogDescription className="text-slate-600 dark:text-slate-400">
+                        Are you sure you want to delete <span className="font-medium text-slate-900 dark:text-white">{outletName}</span>?
                         This action cannot be undone.
                     </DialogDescription>
                 </DialogHeader>
@@ -45,7 +45,7 @@ export default function DeleteDialog({
                         variant="outline"
                         onClick={() => onOpenChange(false)}
                         disabled={isLoading}
-                        className="border-white/20 text-slate-300 hover:bg-white/5 hover:text-white"
+                        className="border border-slate-200 dark:border-white/20 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white"
                     >
                         Cancel
                     </Button>
