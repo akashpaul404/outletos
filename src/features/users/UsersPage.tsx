@@ -199,11 +199,11 @@ export default function UsersPage() {
         <table className="w-full">
           <thead>
             <tr className="border-b border-slate-200 dark:border-white/10">
-              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-400">User</th>
-              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-400">Role</th>
-              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-400">Status</th>
-              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-400">Created</th>
-              <th className="text-right p-4 font-bold text-xs uppercase tracking-wider text-slate-400">Actions</th>
+              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">User</th>
+              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Role</th>
+              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Status</th>
+              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Created</th>
+              <th className="text-right p-4 font-bold text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -263,7 +263,7 @@ export default function UsersPage() {
                         e.stopPropagation()
                         toast.info(`Actions for ${user.name}`)
                       }}
-                      className="inline-flex items-center justify-center w-8 h-8 rounded-lg hover:bg-white/10 transition-colors text-slate-400 hover:text-white"
+                      className="inline-flex items-center justify-center w-8 h-8 rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     >
                       <Icon3D icon={ICONS.menu} size={20} />
                     </motion.button>
@@ -284,7 +284,7 @@ export default function UsersPage() {
             className="flex flex-col items-center justify-center py-12"
           >
             <Icon3DFloat icon={ICONS.empty} size={64} color="#a1a1aa" />
-            <h3 className="mt-4 text-lg font-semibold text-white">No users found</h3>
+            <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">No users found</h3>
             <p className="text-sm text-slate-400">Try adjusting your filters</p>
           </motion.div>
         )

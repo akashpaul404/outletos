@@ -19,7 +19,9 @@ interface HeaderProps {
 }
 
 export default function Header({ title }: HeaderProps) {
-    const [isDark, setIsDark] = useState(false)
+    const [isDark, setIsDark] = useState(() =>
+        document.documentElement.classList.contains("dark")
+    )
     const user = useAuthStore((state) => state.user)
     const logout = useAuthStore((state) => state.logout)
     const navigate = useNavigate()
@@ -46,7 +48,7 @@ export default function Header({ title }: HeaderProps) {
     }
 
     return (
-        <header className="flex h-16 items-center justify-between border-b border-slate-200/50 dark:border-white/5 glass-header bg-background-light/80 dark:bg-transparent px-6">
+        <header className="flex h-16 items-center justify-between glass-header px-6">
             {/* Page Title */}
             <h1 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">{title}</h1>
 

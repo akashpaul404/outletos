@@ -22,7 +22,6 @@
   --color-ring: #6467f2;
   --radius: 0.5rem;
 
-  /* Background colors */
   --color-bg-light: #f6f6f8;
   --color-bg-dark: #101122;
   --color-bg-dark-deep: #0a0a16;
@@ -61,55 +60,60 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* ===== BLOBS ===== */
+/* ===== BLOBS (light mode) ===== */
 .blob {
   filter: blur(60px);
   opacity: 0.5;
+  pointer-events: none;
 }
 
-/* ===== GLOWING ORBS (dark only) ===== */
+/* ===== GLOWING ORBS (dark mode) ===== */
 .glowing-orb {
   filter: blur(80px);
   opacity: 0.35;
+  pointer-events: none;
 }
 
 /* ===== GLASS CARD ===== */
 .glass-card {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 .dark .glass-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* ===== GLASS SIDEBAR ===== */
 .glass-sidebar {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(100, 103, 242, 0.12);
+  border-right: 1px solid rgba(100, 103, 242, 0.1);
 }
+
 .dark .glass-sidebar {
-  background: rgba(16, 17, 34, 0.85);
+  background: rgba(16, 17, 34, 0.8);
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ===== GLASS HEADER ===== */
 .glass-header {
-  background: rgba(246, 246, 248, 0.9);
+  background: rgba(246, 246, 248, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
+
 .dark .glass-header {
-  background: rgba(16, 17, 34, 0.6);
+  background: rgba(16, 17, 34, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Gradient text */
+/* ===== GRADIENT TEXT ===== */
 .gradient-text {
   background: linear-gradient(to right, #6467f2, #06b6d4);
   -webkit-background-clip: text;
@@ -117,9 +121,10 @@ body {
   background-clip: text;
 }
 
-/* Gradient button */
+/* ===== GRADIENT BUTTON ===== */
 .btn-gradient {
-  background: linear-gradient(to right, #6467f2, #06b6d4);
+  background: linear-gradient(to right, #6467f2, #06b6d4) !important;
+  color: white !important;
   box-shadow: 0 4px 14px 0 rgba(100, 103, 242, 0.25);
 }
 
@@ -127,7 +132,7 @@ body {
   opacity: 0.9;
 }
 
-/* Background light/dark utilities */
+/* ===== BACKGROUND UTILITIES ===== */
 .bg-background-light {
   background-color: #f6f6f8;
 }

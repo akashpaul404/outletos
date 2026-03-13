@@ -50,8 +50,8 @@ export default function UserForm({
   const availableRoles: UserRole[] = isAdmin
     ? ["admin", "manager", "staff"]
     : isManager
-    ? ["manager", "staff"]
-    : []
+      ? ["manager", "staff"]
+      : []
 
   const {
     register,

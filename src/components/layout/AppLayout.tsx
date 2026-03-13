@@ -15,14 +15,14 @@ export default function AppLayout() {
     const title = pageTitles[location.pathname] || "Dashboard"
 
     return (
-        <div className="flex h-screen bg-background-light dark:bg-background-dark">
+        <div className="flex h-screen bg-[#f6f6f8] dark:bg-[#101122]">
             {/* Command Palette - Global */}
             <CommandPalette />
 
             <Sidebar />
             <div className="flex flex-1 flex-col overflow-hidden">
                 <Header title={title} />
-                <main className="flex-1 overflow-auto p-8 bg-background-light dark:bg-background-dark">
+                <main className="flex-1 overflow-auto p-8 bg-[#f6f6f8] dark:bg-[#101122]">
                     <Outlet />
                 </main>
             </div>
