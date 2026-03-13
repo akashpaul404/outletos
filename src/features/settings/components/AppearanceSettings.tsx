@@ -17,7 +17,10 @@ const accentColors: { id: AccentColor; name: string; color: string }[] = [
 ]
 
 export default function AppearanceSettings({ onThemeChange }: AppearanceSettingsProps) {
-    const [theme, setTheme] = React.useState<Theme>("light")
+    const [theme, setTheme] = React.useState<Theme>(() => {
+        // Initialize from localStorage or default to light
+        return (localStorage.getItem('theme') as Theme) || 'light'
+    })
     const [accentColor, setAccentColor] = React.useState<AccentColor>("indigo")
 
     const handleThemeChange = (newTheme: Theme) => {
@@ -28,15 +31,19 @@ export default function AppearanceSettings({ onThemeChange }: AppearanceSettings
         const root = document.documentElement
         if (newTheme === "dark") {
             root.classList.add("dark")
+            localStorage.setItem('theme', 'dark')
         } else if (newTheme === "light") {
             root.classList.remove("dark")
+            localStorage.setItem('theme', 'light')
         } else {
             // System preference
             const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches
             if (isDark) {
                 root.classList.add("dark")
+                localStorage.setItem('theme', 'dark')
             } else {
                 root.classList.remove("dark")
+                localStorage.setItem('theme', 'light')
             }
         }
     }

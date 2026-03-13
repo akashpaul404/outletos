@@ -29,6 +29,8 @@ export default function Header({ title }: HeaderProps) {
     const toggleDarkMode = () => {
         setIsDark(!isDark)
         document.documentElement.classList.toggle("dark")
+        // Save preference
+        localStorage.setItem('theme', isDark ? 'light' : 'dark')
     }
 
     const handleLogout = () => {
