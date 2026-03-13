@@ -108,14 +108,14 @@ export default function OutletsPage() {
         >
             {/* Page Header */}
             <motion.div className="flex items-center gap-4" variants={itemVariants}>
-                <Icon3DFloat 
-                    icon={ICONS.outlets} 
+                <Icon3DFloat
+                    icon={ICONS.outlets}
                     size={48}
                     color="#8b5cf6"
                 />
                 <div className="flex flex-col gap-1">
-                    <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">Outlets</h1>
-                    <p className="text-slate-500 dark:text-slate-400">Manage your outlet locations</p>
+                    <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Outlets</h1>
+                    <p className="text-slate-500 dark:text-slate-400 mt-1">Manage your outlet locations</p>
                 </div>
             </motion.div>
 
@@ -131,13 +131,13 @@ export default function OutletsPage() {
                             placeholder="Search outlets..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="pl-9 bg-white/5 border-white/10 text-white placeholder:text-slate-500"
+                            className="pl-9 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary"
                         />
                     </div>
                     <Select
                         value={statusFilter}
                         onChange={(e) => setStatusFilter(e.target.value as OutletStatus | "all")}
-                        className="w-[140px] bg-white/5 border-white/10 text-white"
+                        className="w-[140px] bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 rounded-xl"
                     >
                         <option value="all">All Status</option>
                         <option value="active">Active</option>
@@ -145,7 +145,7 @@ export default function OutletsPage() {
                         <option value="inactive">Inactive</option>
                     </Select>
                 </div>
-                <Button onClick={handleCreate} className="btn-gradient">
+                <Button onClick={handleCreate} className="btn-gradient text-white rounded-xl px-5 py-2.5 font-bold shadow-lg shadow-primary/25">
                     <Icon3D icon={ICONS.add} size={18} hoverRotate={false} />
                     Add Outlet
                 </Button>
@@ -162,14 +162,14 @@ export default function OutletsPage() {
                         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/5">
                             <Icon3DFloat icon={ICONS.outlets} size={36} color="#71717a" />
                         </div>
-                        <h3 className="mt-4 text-lg font-medium text-white">No outlets found</h3>
+                        <h3 className="mt-4 text-lg font-medium text-slate-900 dark:text-white">No outlets found</h3>
                         <p className="mt-1 text-sm text-slate-400">
                             {searchQuery || statusFilter !== "all"
                                 ? "Try adjusting your search or filter"
                                 : "Get started by creating your first outlet"}
                         </p>
                         {!searchQuery && statusFilter === "all" && (
-                            <Button className="mt-4 btn-gradient" onClick={handleCreate}>
+                            <Button className="mt-4 btn-gradient text-white rounded-xl px-5 py-2.5 font-bold shadow-lg shadow-primary/25" onClick={handleCreate}>
                                 <Icon3D icon={ICONS.add} size={18} hoverRotate={false} />
                                 Add Outlet
                             </Button>

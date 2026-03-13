@@ -15,7 +15,7 @@ export default function AppLayout() {
     const title = pageTitles[location.pathname] || "Dashboard"
 
     return (
-        <div className="flex h-screen bg-background-dark dark:bg-background-dark">
+        <div className="flex h-screen bg-background-light dark:bg-background-dark">
             {/* Command Palette - Global */}
             <CommandPalette />
 

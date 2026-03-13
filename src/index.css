@@ -22,12 +22,6 @@
   --color-ring: #6467f2;
   --radius: 0.5rem;
 
-  /* Glass colors */
-  --color-glass-white: rgba(255, 255, 255, 0.03);
-  --color-glass-border: rgba(255, 255, 255, 0.08);
-  --color-glass-sidebar: rgba(16, 17, 34, 0.8);
-  --color-glass-header: rgba(16, 17, 34, 0.5);
-
   /* Background colors */
   --color-bg-light: #f6f6f8;
   --color-bg-dark: #101122;
@@ -67,52 +61,55 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* Glass card */
+/* Glass card — light mode */
 .glass-card {
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Glass card — dark mode override */
 .dark .glass-card {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* Glass sidebar */
+/* Glass sidebar — light */
 .glass-sidebar {
-  background: rgba(248, 248, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-right: 1px solid rgba(99, 102, 241, 0.12);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(100, 103, 242, 0.1);
 }
 
+/* Glass sidebar — dark */
 .dark .glass-sidebar {
   background: rgba(16, 17, 34, 0.8);
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Glass header */
+/* Glass header — light */
 .glass-header {
-  background: rgba(248, 248, 255, 0.75);
+  background: rgba(246, 246, 248, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
+/* Glass header — dark */
 .dark .glass-header {
   background: rgba(16, 17, 34, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Glowing orb for login */
+/* Glowing orb (login page) */
 .glowing-orb {
   filter: blur(80px);
   opacity: 0.4;
 }
 
-/* Primary gradient text */
+/* Gradient text */
 .gradient-text {
   background: linear-gradient(to right, #6467f2, #06b6d4);
   -webkit-background-clip: text;
@@ -120,9 +117,9 @@ body {
   background-clip: text;
 }
 
-/* Button gradient */
+/* Gradient button */
 .btn-gradient {
-  background: linear-gradient(to right, #6467f2, #8b5cf6);
+  background: linear-gradient(to right, #6467f2, #06b6d4);
   box-shadow: 0 4px 14px 0 rgba(100, 103, 242, 0.25);
 }
 
@@ -130,72 +127,11 @@ body {
   opacity: 0.9;
 }
 
-/* Light-aware text utilities */
-.text-adaptive-primary {
-  color: #0f172a;
+/* Background light/dark utilities */
+.bg-background-light {
+  background-color: #f6f6f8;
 }
 
-.dark .text-adaptive-primary {
-  color: #ffffff;
+.bg-background-dark {
+  background-color: #101122;
 }
-
-.text-adaptive-muted {
-  color: #64748b;
-}
-
-.dark .text-adaptive-muted {
-  color: #94a3b8;
-}
-
-/* ===== LIGHT MODE TEXT FIX ===== */
-:root:not(.dark) body,
-:root:not(.dark) {
-  color: #0f172a;
-}
-
-:root:not(.dark) .glass-card {
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(99, 102, 241, 0.18);
-  color: #0f172a;
-}
-
-:root:not(.dark) .glass-sidebar {
-  background: rgba(245, 246, 255, 0.92);
-  border-right: 1px solid rgba(99, 102, 241, 0.12);
-  color: #0f172a;
-}
-
-:root:not(.dark) .glass-header {
-  background: rgba(245, 246, 255, 0.88);
-  border-bottom: 1px solid rgba(99, 102, 241, 0.12);
-  color: #0f172a;
-}
-
-:root:not(.dark) .text-white,
-:root:not(.dark) [class*="text-white"] {
-  color: #0f172a !important;
-}
-
-:root:not(.dark) .text-slate-400,
-:root:not(.dark) .text-slate-500 {
-  color: #475569 !important;
-}
-
-:root:not(.dark) .text-slate-300 {
-  color: #334155 !important;
-}
-
-:root:not(.dark) .border-white\/5,
-:root:not(.dark) .border-white\/10 {
-  border-color: rgba(99, 102, 241, 0.12) !important;
-}
-
-:root:not(.dark) .hover\:bg-white\/5:hover {
-  background-color: rgba(99, 102, 241, 0.06) !important;
-}
-
-:root:not(.dark) .bg-white\/5 {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* ===== END LIGHT MODE TEXT FIX ===== */

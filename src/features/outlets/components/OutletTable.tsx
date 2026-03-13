@@ -16,9 +16,9 @@ interface OutletTableProps {
 }
 
 const statusStyles: Record<OutletStatus, string> = {
-    active: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
-    pending: "bg-amber-500/10 text-amber-400 border border-amber-500/20",
-    inactive: "bg-slate-500/10 text-slate-400 border border-slate-500/20",
+    active: "bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 rounded-full px-2.5 py-0.5 text-xs font-bold",
+    pending: "bg-amber-100 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20 rounded-full px-2.5 py-0.5 text-xs font-bold",
+    inactive: "bg-slate-100 dark:bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-500/20 rounded-full px-2.5 py-0.5 text-xs font-bold",
 }
 
 function formatRevenue(revenue: number): string {
@@ -37,7 +37,7 @@ export default function OutletTable({ outlets, onEdit, onDelete }: OutletTablePr
                 <table className="w-full">
                     <thead>
                         <tr className="border-b border-slate-200 dark:border-white/10 text-left">
-                            <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                            <th className="sticky top-0 px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">
                                 Name
                             </th>
                             <th className="sticky top-0 px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
@@ -61,7 +61,7 @@ export default function OutletTable({ outlets, onEdit, onDelete }: OutletTablePr
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.2, delay: index * 0.05 }}
-                                className="border-b border-slate-200/80 dark:border-white/5 last:border-0 hover:bg-slate-100/80 dark:hover:bg-white/5 transition-colors"
+                                className="border-b border-slate-100 dark:border-white/5 hover:bg-white/40 dark:hover:bg-white/5 transition-colors"
                             >
                                 <td className="px-6 py-4">
                                     <div className="font-medium text-slate-900 dark:text-white">{outlet.name}</div>
@@ -74,7 +74,7 @@ export default function OutletTable({ outlets, onEdit, onDelete }: OutletTablePr
                                 </td>
                                 <td className="px-6 py-4">
                                     <span
-                                        className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium capitalize ${statusStyles[outlet.status]}`}
+                                        className={`inline-flex items-center border text-xs font-bold capitalize ${statusStyles[outlet.status]}`}
                                     >
                                         {outlet.status}
                                     </span>
@@ -85,7 +85,7 @@ export default function OutletTable({ outlets, onEdit, onDelete }: OutletTablePr
                                 <td className="px-6 py-4 text-right">
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5">
+                                            <Button variant="ghost" size="icon" className="h-8 w-8 p-2 text-slate-400 hover:text-primary dark:hover:text-primary transition-colors">
                                                 <MoreHorizontal className="h-4 w-4" />
                                             </Button>
                                         </DropdownMenuTrigger>

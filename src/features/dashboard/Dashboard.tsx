@@ -197,7 +197,7 @@ export default function Dashboard() {
                         </div>
 
                         {/* Title */}
-                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">{kpi.title}</p>
+                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">{kpi.title}</p>
 
                         {/* Value */}
                         <p className="text-2xl font-bold text-slate-900 dark:text-white">
@@ -208,11 +208,11 @@ export default function Dashboard() {
                         <div className="flex items-center gap-1 text-xs">
                             {kpi.trend === "up" ? (
                                 <>
-                                    <span className="text-emerald-400 font-medium">+{kpi.change}%</span>
+                                    <span className="text-emerald-500 font-bold">+{kpi.change}%</span>
                                 </>
                             ) : (
                                 <>
-                                    <span className="text-red-400 font-medium">{kpi.change}%</span>
+                                    <span className="text-rose-500 font-bold">{kpi.change}%</span>
                                 </>
                             )}
                             <span className="text-slate-400 dark:text-slate-500">vs last month</span>
@@ -230,7 +230,7 @@ export default function Dashboard() {
                 >
                     <div className="flex items-center justify-between mb-6">
                         <div>
-                            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Revenue Overview</h2>
+                            <h2 className="text-xl font-bold text-slate-900 dark:text-white">Revenue Overview</h2>
                             <p className="text-sm text-slate-500 dark:text-slate-400">Monthly revenue and user growth</p>
                         </div>
                         <div className="flex items-center gap-4">
@@ -259,8 +259,8 @@ export default function Dashboard() {
                                 </defs>
                                 <CartesianGrid
                                     strokeDasharray="3 3"
-                                    stroke="#334155"
-                                    strokeOpacity={0.3}
+                                    stroke="#e2e8f0"
+                                    strokeOpacity={0.5}
                                     vertical={false}
                                 />
                                 <XAxis
@@ -325,7 +325,7 @@ export default function Dashboard() {
                                         }`}
                                 />
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium text-slate-900 dark:text-white truncate">{activity.action}</p>
+                                    <p className="text-sm font-bold text-slate-900 dark:text-white truncate">{activity.action}</p>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{activity.outlet}</p>
                                 </div>
                                 <span className="text-xs text-slate-500 dark:text-slate-500 whitespace-nowrap">{activity.time}</span>
@@ -341,18 +341,18 @@ export default function Dashboard() {
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead>
-                            <tr className="border-b border-slate-200 dark:border-white/10 text-left">
-                                <th className="pb-3 text-xs font-bold text-slate-500 uppercase tracking-widest">Name</th>
-                                <th className="pb-3 text-xs font-bold text-slate-500 uppercase tracking-widest">Location</th>
-                                <th className="pb-3 text-xs font-bold text-slate-500 uppercase tracking-widest">Status</th>
-                                <th className="pb-3 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">Revenue</th>
+                            <tr className="border-b border-slate-100 dark:border-white/5 text-left">
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-400">Name</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-400">Location</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-400">Status</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-400 text-right">Revenue</th>
                             </tr>
                         </thead>
                         <tbody>
                             {recentOutlets.map((outlet) => (
                                 <tr
                                     key={outlet.id}
-                                    className="border-b border-slate-200/80 dark:border-white/5 last:border-0 hover:bg-slate-100/80 dark:hover:bg-white/5 transition-colors"
+                                    className="border-b border-slate-100 dark:border-white/5 last:border-0 hover:bg-white/40 dark:hover:bg-white/5 transition-colors"
                                 >
                                     <td className="py-4 text-sm font-medium text-slate-900 dark:text-white">{outlet.name}</td>
                                     <td className="py-4 text-sm text-slate-500 dark:text-slate-400">{outlet.location}</td>

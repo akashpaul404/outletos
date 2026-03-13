@@ -134,7 +134,7 @@ export default function UsersPage() {
             color="#f59e0b"
           />
           <div>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Users</h1>
+            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Users</h1>
             <p className="text-slate-500 dark:text-slate-400 mt-1">
               Manage team members and permissions
             </p>
@@ -144,7 +144,7 @@ export default function UsersPage() {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="flex items-center gap-2 px-4 py-2.5 btn-gradient rounded-lg font-medium"
+          className="flex items-center gap-2 px-5 py-2.5 btn-gradient rounded-xl font-bold text-white"
           onClick={() => toast.success('Add user modal would open here')}
         >
           <Icon3D icon={ICONS.add} size={20} hoverRotate={false} />
@@ -168,7 +168,7 @@ export default function UsersPage() {
             placeholder="Search users..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-white/10 rounded-lg bg-white/5 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+            className="w-full pl-10 pr-4 py-2.5 border border-slate-200 dark:border-white/10 rounded-xl bg-white dark:bg-white/5 text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
           />
         </div>
 
@@ -176,7 +176,7 @@ export default function UsersPage() {
           <select
             value={selectedRole}
             onChange={(e) => setSelectedRole(e.target.value)}
-            className="appearance-none px-4 py-2.5 pr-10 border border-white/10 rounded-lg bg-white/5 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all cursor-pointer"
+            className="appearance-none px-4 py-2.5 pr-10 border border-slate-200 dark:border-white/10 rounded-xl bg-white dark:bg-white/5 text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer"
           >
             <option value="all">All Roles</option>
             <option value="admin">Admin</option>
@@ -198,12 +198,12 @@ export default function UsersPage() {
       >
         <table className="w-full">
           <thead>
-            <tr className="bg-white/5 border-b border-white/10">
-              <th className="text-left p-4 font-semibold text-xs text-slate-500 uppercase tracking-wide">User</th>
-              <th className="text-left p-4 font-semibold text-xs text-slate-500 uppercase tracking-wide">Role</th>
-              <th className="text-left p-4 font-semibold text-xs text-slate-500 uppercase tracking-wide">Status</th>
-              <th className="text-left p-4 font-semibold text-xs text-slate-500 uppercase tracking-wide">Created</th>
-              <th className="text-right p-4 font-semibold text-xs text-slate-500 uppercase tracking-wide">Actions</th>
+            <tr className="border-b border-slate-200 dark:border-white/10">
+              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-400">User</th>
+              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-400">Role</th>
+              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-400">Status</th>
+              <th className="text-left p-4 font-bold text-xs uppercase tracking-wider text-slate-400">Created</th>
+              <th className="text-right p-4 font-bold text-xs uppercase tracking-wider text-slate-400">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -219,7 +219,7 @@ export default function UsersPage() {
                   layout
                   onClick={() => setSelectedRow(user.id)}
                   className={cn(
-                    "border-b border-white/5 cursor-pointer transition-colors hover:bg-white/5",
+                    "border-b border-slate-100 dark:border-white/5 cursor-pointer transition-colors hover:bg-white/40 dark:hover:bg-white/5",
                     selectedRow === user.id && "bg-primary/10"
                   )}
                 >
@@ -232,8 +232,8 @@ export default function UsersPage() {
                         {user.initials}
                       </motion.div>
                       <div>
-                        <div className="font-medium text-white">{user.name}</div>
-                        <div className="text-sm text-slate-400">{user.email}</div>
+                        <div className="font-medium text-slate-900 dark:text-white">{user.name}</div>
+                        <div className="text-sm text-slate-500 dark:text-slate-400">{user.email}</div>
                       </div>
                     </div>
                   </td>
@@ -253,7 +253,7 @@ export default function UsersPage() {
                     />
                   </td>
                   <td className="p-4">
-                    <span className="text-slate-400 text-sm">{user.created}</span>
+                    <span className="text-slate-500 dark:text-slate-400 text-sm">{user.created}</span>
                   </td>
                   <td className="p-4 text-right">
                     <motion.button
@@ -276,17 +276,19 @@ export default function UsersPage() {
       </motion.div>
 
       {/* Empty State */}
-      {filteredUsers.length === 0 && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="flex flex-col items-center justify-center py-12"
-        >
-          <Icon3DFloat icon={ICONS.empty} size={64} color="#a1a1aa" />
-          <h3 className="mt-4 text-lg font-semibold text-white">No users found</h3>
-          <p className="text-sm text-slate-400">Try adjusting your filters</p>
-        </motion.div>
-      )}
-    </div>
+      {
+        filteredUsers.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="flex flex-col items-center justify-center py-12"
+          >
+            <Icon3DFloat icon={ICONS.empty} size={64} color="#a1a1aa" />
+            <h3 className="mt-4 text-lg font-semibold text-white">No users found</h3>
+            <p className="text-sm text-slate-400">Try adjusting your filters</p>
+          </motion.div>
+        )
+      }
+    </div >
   )
 }

@@ -63,7 +63,7 @@ export default function Sidebar() {
             className="flex flex-col glass-sidebar"
         >
             {/* Logo */}
-            <div className="flex h-16 items-center justify-between border-b border-slate-200/80 dark:border-white/5 px-4">
+            <div className="flex h-16 items-center justify-between border-b border-slate-200/50 dark:border-white/5 px-4">
                 <AnimatePresence mode="wait">
                     {!collapsed && (
                         <motion.span
@@ -81,7 +81,7 @@ export default function Sidebar() {
                     variant="ghost"
                     size="icon"
                     onClick={() => setCollapsed(!collapsed)}
-                    className="h-8 w-8 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5"
+                    className="h-8 w-8 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5"
                 >
                     {collapsed ? (
                         <Icon3D icon={ICONS.arrowRight} size={18} hoverRotate={false} />
@@ -106,8 +106,8 @@ export default function Sidebar() {
                             cn(
                                 "relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
                                 isActive
-                                    ? "bg-primary/10 text-primary"
-                                    : "text-slate-600 dark:text-slate-400 hover:bg-slate-100/80 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white",
+                                    ? "bg-primary dark:bg-primary/10 text-white dark:text-primary"
+                                    : "text-slate-600 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white",
                                 collapsed && "justify-center px-2"
                             )
                         }
@@ -159,7 +159,7 @@ export default function Sidebar() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="text-xs text-slate-500"
+                            className="text-xs text-slate-400 dark:text-slate-500"
                         >
                             © 2026 OutletOS
                         </motion.p>

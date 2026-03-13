@@ -48,13 +48,13 @@ export default function SettingsPage() {
         >
             {/* Page Header */}
             <motion.div className="flex flex-col gap-1" variants={itemVariants}>
-                <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">Settings</h1>
-                <p className="text-slate-500 dark:text-slate-400">Manage your account settings and preferences</p>
+                <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Settings</h1>
+                <p className="text-slate-500 dark:text-slate-400 mt-1">Manage your account settings and preferences</p>
             </motion.div>
 
             {/* Tabs */}
             <motion.div
-                className="flex gap-1 rounded-lg bg-slate-100/50 dark:bg-white/5 p-1 border border-slate-200 dark:border-white/5"
+                className="inline-flex p-1.5 bg-white/60 dark:bg-white/5 backdrop-blur-lg rounded-full border border-white/50 dark:border-white/10 shadow-sm"
                 variants={itemVariants}
             >
                 {tabs.map((tab) => (
@@ -62,10 +62,10 @@ export default function SettingsPage() {
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         className={cn(
-                            "flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors",
+                            "px-6 py-2 rounded-full text-sm font-semibold transition-colors",
                             activeTab === tab.id
-                                ? "bg-primary text-white shadow-sm"
-                                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-white/5"
+                                ? "bg-primary text-white shadow-md shadow-primary/20"
+                                : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
                         )}
                     >
                         <tab.icon className="h-4 w-4" />
@@ -75,7 +75,7 @@ export default function SettingsPage() {
             </motion.div>
 
             {/* Content */}
-            <motion.div variants={itemVariants} className="glass-card rounded-xl p-6">
+            <motion.div variants={itemVariants} className="glass-card rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none">
                 {activeTab === "profile" && (
                     <ProfileForm
                         defaultValues={{
