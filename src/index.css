@@ -53,12 +53,25 @@
   border-color: var(--color-border);
 }
 
+html {
+  background-color: #f6f6f8;
+}
+
+html.dark {
+  background-color: #101122;
+}
+
 body {
-  background-color: var(--color-background);
+  background-color: #f6f6f8;
   color: var(--color-foreground);
   font-feature-settings: "rlig" 1, "calt" 1;
   font-family: 'Inter', sans-serif;
 }
+
+html.dark body {
+  background-color: #101122;
+}
+
 
 /* ===== BLOBS (light mode) ===== */
 .blob {

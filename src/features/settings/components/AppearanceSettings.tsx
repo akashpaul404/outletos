@@ -18,8 +18,9 @@ const accentColors: { id: AccentColor; name: string; color: string }[] = [
 
 export default function AppearanceSettings({ onThemeChange }: AppearanceSettingsProps) {
     const [theme, setTheme] = React.useState<Theme>(() => {
-        // Initialize from localStorage or default to light
-        return (localStorage.getItem('theme') as Theme) || 'light'
+        // Sync with actual DOM state
+        const isDarkInDOM = document.documentElement.classList.contains('dark')
+        return isDarkInDOM ? 'dark' : 'light'
     })
     const [accentColor, setAccentColor] = React.useState<AccentColor>("indigo")
 

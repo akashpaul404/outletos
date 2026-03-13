@@ -27,10 +27,16 @@ export default function Header({ title }: HeaderProps) {
     const navigate = useNavigate()
 
     const toggleDarkMode = () => {
-        setIsDark(!isDark)
-        document.documentElement.classList.toggle("dark")
-        // Save preference
-        localStorage.setItem('theme', isDark ? 'light' : 'dark')
+        const newIsDark = !isDark
+        setIsDark(newIsDark)
+        
+        if (newIsDark) {
+            document.documentElement.classList.add("dark")
+            localStorage.setItem('theme', 'dark')
+        } else {
+            document.documentElement.classList.remove("dark")
+            localStorage.setItem('theme', 'light')
+        }
     }
 
     const handleLogout = () => {
