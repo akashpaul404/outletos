@@ -29,7 +29,7 @@ export default function Header({ title }: HeaderProps) {
     const toggleDarkMode = () => {
         const newIsDark = !isDark
         setIsDark(newIsDark)
-        
+
         if (newIsDark) {
             document.documentElement.classList.add("dark")
             localStorage.setItem('theme', 'dark')

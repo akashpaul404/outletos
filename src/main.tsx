@@ -7,13 +7,13 @@ import { Toaster } from 'sonner'
 // Initialize theme: light mode by default
 const initializeTheme = () => {
   const html = document.documentElement
-  
+
   // Remove dark class first (clear any stale state)
   html.classList.remove('dark')
-  
+
   // Get saved preference
   const savedTheme = localStorage.getItem('theme')
-  
+
   // If explicitly saved as dark, apply it
   if (savedTheme === 'dark') {
     html.classList.add('dark')

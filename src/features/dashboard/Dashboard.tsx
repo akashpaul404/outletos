@@ -6,8 +6,6 @@ import {
     Store,
     TrendingUp,
     Activity,
-    ArrowUpRight,
-    ArrowDownRight,
 } from "lucide-react"
 import {
     XAxis,
@@ -59,6 +57,7 @@ const kpiData = [
         icon: DollarSign,
         gradient: "from-emerald-500 to-teal-500",
         bgGradient: "from-emerald-500/10 to-teal-500/10",
+        iconColor: "#10b981",
     },
     {
         title: "Active Users",
@@ -68,6 +67,7 @@ const kpiData = [
         icon: Users,
         gradient: "from-blue-500 to-indigo-500",
         bgGradient: "from-blue-500/10 to-indigo-500/10",
+        iconColor: "#3b82f6",
     },
     {
         title: "Total Outlets",
@@ -77,6 +77,7 @@ const kpiData = [
         icon: Store,
         gradient: "from-purple-500 to-pink-500",
         bgGradient: "from-purple-500/10 to-pink-500/10",
+        iconColor: "#a855f7",
     },
     {
         title: "Growth Rate",
@@ -87,6 +88,7 @@ const kpiData = [
         icon: TrendingUp,
         gradient: "from-orange-500 to-amber-500",
         bgGradient: "from-orange-500/10 to-amber-500/10",
+        iconColor: "#f97316",
     },
 ]
 
@@ -175,9 +177,8 @@ export default function Dashboard() {
             initial="hidden"
             animate="visible"
         >
-            {/* Page Header */}
+            {/* Page Sub-header with date */}
             <motion.div className="flex flex-col gap-1" variants={itemVariants}>
-                <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">Dashboard</h1>
                 <p className="text-slate-500 dark:text-slate-400">{currentDate}</p>
             </motion.div>
 
@@ -187,13 +188,11 @@ export default function Dashboard() {
                     <motion.div
                         key={kpi.title}
                         variants={itemVariants}
-                        className="glass-card rounded-xl p-5 flex flex-col gap-4 hover:bg-slate-100/80 dark:hover:bg-white/5 transition-colors"
+                        className="glass-card rounded-xl p-5 flex flex-col gap-3 hover:shadow-md transition-all duration-200"
                     >
                         {/* Icon Container */}
-                        <div
-                            className={`mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${kpi.bgGradient}`}
-                        >
-                            <kpi.icon className={`h-5 w-5`} style={{ color: kpi.gradient.includes('emerald') ? '#10b981' : kpi.gradient.includes('blue') ? '#3b82f6' : kpi.gradient.includes('purple') ? '#a855f7' : '#f97316' }} />
+                        <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${kpi.bgGradient}`}>
+                            <kpi.icon className="h-5 w-5" style={{ color: kpi.iconColor }} />
                         </div>
 
                         {/* Title */}
@@ -207,15 +206,11 @@ export default function Dashboard() {
                         {/* Trend */}
                         <div className="flex items-center gap-1 text-xs">
                             {kpi.trend === "up" ? (
-                                <>
-                                    <span className="text-emerald-500 font-bold">+{kpi.change}%</span>
-                                </>
+                                <span className="text-emerald-500 font-bold">+{kpi.change}%</span>
                             ) : (
-                                <>
-                                    <span className="text-rose-500 font-bold">{kpi.change}%</span>
-                                </>
+                                <span className="text-rose-500 font-bold">{kpi.change}%</span>
                             )}
-                            <span className="text-slate-600 dark:text-slate-500">vs last month</span>
+                            <span className="text-slate-500 dark:text-slate-500">vs last month</span>
                         </div>
                     </motion.div>
                 ))}
@@ -223,28 +218,28 @@ export default function Dashboard() {
 
             {/* Charts Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Revenue Chart - Hero Section */}
+                {/* Revenue Chart */}
                 <motion.div
                     variants={itemVariants}
                     className="lg:col-span-2 glass-card rounded-xl p-6"
                 >
                     <div className="flex items-center justify-between mb-6">
                         <div>
-                            <h2 className="text-xl font-bold text-slate-900 dark:text-white">Revenue Overview</h2>
+                            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Revenue Overview</h2>
                             <p className="text-sm text-slate-500 dark:text-slate-400">Monthly revenue and user growth</p>
                         </div>
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-2">
-                                <div className="h-3 w-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500" />
-                                <span className="text-sm text-slate-500 dark:text-slate-400">Revenue</span>
+                                <div className="h-3 w-3 rounded-full bg-emerald-500" />
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Revenue</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <div className="h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500" />
-                                <span className="text-sm text-slate-500 dark:text-slate-400">Users</span>
+                                <div className="h-3 w-3 rounded-full bg-blue-500" />
+                                <span className="text-xs text-slate-500 dark:text-slate-400">Users</span>
                             </div>
                         </div>
                     </div>
-                    <div className="h-[350px]">
+                    <div className="h-[300px]">
                         <ResponsiveContainer width="100%" height="100%">
                             <AreaChart data={revenueData}>
                                 <defs>
@@ -257,78 +252,43 @@ export default function Dashboard() {
                                         <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
                                     </linearGradient>
                                 </defs>
-                                <CartesianGrid
-                                    strokeDasharray="3 3"
-                                    stroke="#e2e8f0"
-                                    strokeOpacity={0.5}
-                                    vertical={false}
-                                />
-                                <XAxis
-                                    dataKey="name"
-                                    axisLine={false}
-                                    tickLine={false}
-                                    tick={{ fill: "#94a3b8", fontSize: 12 }}
-                                />
-                                <YAxis
-                                    axisLine={false}
-                                    tickLine={false}
-                                    tick={{ fill: "#94a3b8", fontSize: 12 }}
-                                    tickFormatter={(value) => `${value}`}
-                                />
+                                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" strokeOpacity={0.5} vertical={false} />
+                                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: "#94a3b8", fontSize: 12 }} />
+                                <YAxis axisLine={false} tickLine={false} tick={{ fill: "#94a3b8", fontSize: 12 }} />
                                 <Tooltip content={<CustomTooltip />} />
-                                <Area
-                                    type="monotone"
-                                    dataKey="revenue"
-                                    name="Revenue"
-                                    stroke="#10b981"
-                                    strokeWidth={2}
-                                    fill="url(#revenueGradient)"
-                                />
-                                <Area
-                                    type="monotone"
-                                    dataKey="users"
-                                    name="Users"
-                                    stroke="#3b82f6"
-                                    strokeWidth={2}
-                                    fill="url(#usersGradient)"
-                                />
+                                <Area type="monotone" dataKey="revenue" name="Revenue" stroke="#10b981" strokeWidth={2} fill="url(#revenueGradient)" />
+                                <Area type="monotone" dataKey="users" name="Users" stroke="#3b82f6" strokeWidth={2} fill="url(#usersGradient)" />
                             </AreaChart>
                         </ResponsiveContainer>
                     </div>
                 </motion.div>
 
                 {/* Activity Panel */}
-                <motion.div
-                    variants={itemVariants}
-                    className="glass-card rounded-xl p-6"
-                >
+                <motion.div variants={itemVariants} className="glass-card rounded-xl p-6">
                     <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Recent Activity</h2>
-                        <Activity className="h-5 w-5 text-slate-500 dark:text-slate-400" />
+                        <h2 className="text-base font-bold text-slate-900 dark:text-white">Recent Activity</h2>
+                        <Activity className="h-5 w-5 text-slate-400" />
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                         {activityData.map((activity) => (
                             <div
                                 key={activity.id}
-                                className="flex items-start gap-3 rounded-lg p-2 hover:bg-slate-100/80 dark:hover:bg-white/5 transition-colors"
+                                className="flex items-start gap-3 rounded-lg p-2 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
                             >
                                 <div
-                                    className={`mt-0.5 h-2 w-2 rounded-full ${activity.type === "create"
-                                        ? "bg-emerald-500"
-                                        : activity.type === "user"
-                                            ? "bg-blue-500"
-                                            : activity.type === "update"
-                                                ? "bg-amber-500"
-                                                : activity.type === "payment"
-                                                    ? "bg-purple-500"
-                                                    : "bg-pink-500"
-                                        }`}
+                                    className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${
+                                        activity.type === "create" ? "bg-emerald-500"
+                                        : activity.type === "user" ? "bg-blue-500"
+                                        : activity.type === "update" ? "bg-amber-500"
+                                        : activity.type === "payment" ? "bg-purple-500"
+                                        : "bg-pink-500"
+                                    }`}
                                 />
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-bold text-slate-900 dark:text-white truncate">{activity.action}</p>
+                                    <p className="text-sm font-medium text-slate-900 dark:text-white truncate">{activity.action}</p>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{activity.outlet}</p>
                                 </div>
-                                <span className="text-xs text-slate-500 dark:text-slate-500 whitespace-nowrap">{activity.time}</span>
+                                <span className="text-xs text-slate-400 whitespace-nowrap">{activity.time}</span>
                             </div>
                         ))}
                     </div>
@@ -337,38 +297,37 @@ export default function Dashboard() {
 
             {/* Recent Outlets Table */}
             <motion.div variants={itemVariants} className="glass-card rounded-xl p-6">
-                <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-6">Recent Outlets</h2>
+                <h2 className="text-base font-bold text-slate-900 dark:text-white mb-5">Recent Outlets</h2>
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead>
                             <tr className="border-b border-slate-100 dark:border-white/5 text-left">
-                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Name</th>
-                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Location</th>
-                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Status</th>
-                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 text-right">Revenue</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Name</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Location</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Status</th>
+                                <th className="pb-3 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 text-right">Revenue</th>
                             </tr>
                         </thead>
                         <tbody>
                             {recentOutlets.map((outlet) => (
                                 <tr
                                     key={outlet.id}
-                                    className="border-b border-slate-100 dark:border-white/5 last:border-0 hover:bg-white/40 dark:hover:bg-white/5 transition-colors"
+                                    className="border-b border-slate-100 dark:border-white/5 last:border-0 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
                                 >
-                                    <td className="py-4 text-sm font-medium text-slate-900 dark:text-white">{outlet.name}</td>
-                                    <td className="py-4 text-sm text-slate-500 dark:text-slate-400">{outlet.location}</td>
-                                    <td className="py-4">
-                                        <span
-                                            className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${outlet.status === "Active"
-                                                ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                                    <td className="py-3.5 text-sm font-medium text-slate-900 dark:text-white">{outlet.name}</td>
+                                    <td className="py-3.5 text-sm text-slate-500 dark:text-slate-400">{outlet.location}</td>
+                                    <td className="py-3.5">
+                                        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                                            outlet.status === "Active"
+                                                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
                                                 : outlet.status === "Pending"
-                                                    ? "bg-amber-500/10 text-amber-400 border border-amber-500/20"
-                                                    : "bg-slate-500/10 text-slate-400 border border-slate-500/20"
-                                                }`}
-                                        >
+                                                    ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20"
+                                                    : "bg-slate-500/10 text-slate-500 dark:text-slate-400 border border-slate-500/20"
+                                        }`}>
                                             {outlet.status}
                                         </span>
                                     </td>
-                                    <td className="py-4 text-sm text-right font-medium text-slate-900 dark:text-white">{outlet.revenue}</td>
+                                    <td className="py-3.5 text-sm text-right font-medium text-slate-900 dark:text-white">{outlet.revenue}</td>
                                 </tr>
                             ))}
                         </tbody>

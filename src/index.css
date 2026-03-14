@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@variant dark (&:where(.dark, .dark *));  /* ADD THIS LINE */
 @theme {
   --color-background: #f6f6f8;
   --color-foreground: #0a0a0a;
@@ -53,8 +53,19 @@
   border-color: var(--color-border);
 }
 
+/* Base background - transitions with theme */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   background-color: #f6f6f8;
+  transition: background-color 0.2s ease;
 }
 
 html.dark {
@@ -66,12 +77,12 @@ body {
   color: var(--color-foreground);
   font-feature-settings: "rlig" 1, "calt" 1;
   font-family: 'Inter', sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 html.dark body {
   background-color: #101122;
 }
-
 
 /* ===== BLOBS (light mode) ===== */
 .blob {
@@ -108,6 +119,7 @@ html.dark body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-right: 1px solid rgba(226, 232, 240, 0.8);
+  transition: background-color 0.2s ease;
 }
 
 .dark .glass-sidebar {
@@ -121,6 +133,7 @@ html.dark body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  transition: background-color 0.2s ease;
 }
 
 .dark .glass-header {
@@ -145,6 +158,16 @@ html.dark body {
 
 .btn-gradient:hover {
   opacity: 0.9;
+}
+
+/* ===== PAGE BACKGROUND - key fix for theme switching ===== */
+.page-bg {
+  background-color: #f6f6f8;
+  transition: background-color 0.2s ease;
+}
+
+.dark .page-bg {
+  background-color: #101122;
 }
 
 /* ===== BACKGROUND UTILITIES ===== */

@@ -33,7 +33,6 @@ export default function SettingsPage() {
     const user = useAuthStore((state) => state.user)
 
     const handleProfileSave = async (data: { name: string; email: string; company?: string }) => {
-        // Simulate API call
         await new Promise((resolve) => setTimeout(resolve, 1000))
         console.log("Profile saved:", data)
         setToast({ message: "Profile updated successfully", type: "success" })
@@ -46,15 +45,14 @@ export default function SettingsPage() {
             initial="hidden"
             animate="visible"
         >
-            {/* Page Header */}
+            {/* Page Sub-header */}
             <motion.div className="flex flex-col gap-1" variants={itemVariants}>
-                <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Settings</h1>
-                <p className="text-slate-500 dark:text-slate-400 mt-1">Manage your account settings and preferences</p>
+                <p className="text-slate-500 dark:text-slate-400">Manage your account settings and preferences</p>
             </motion.div>
 
             {/* Tabs */}
             <motion.div
-                className="inline-flex p-1.5 bg-white/60 dark:bg-white/5 backdrop-blur-lg rounded-full border border-white/50 dark:border-white/10 shadow-sm"
+                className="inline-flex p-1.5 bg-white/60 dark:bg-white/5 backdrop-blur-lg rounded-full border border-slate-200/80 dark:border-white/10 shadow-sm"
                 variants={itemVariants}
             >
                 {tabs.map((tab) => (
@@ -62,10 +60,10 @@ export default function SettingsPage() {
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
                         className={cn(
-                            "px-6 py-2 rounded-full text-sm font-semibold transition-colors",
+                            "inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200",
                             activeTab === tab.id
                                 ? "bg-primary text-white shadow-md shadow-primary/20"
-                                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                         )}
                     >
                         <tab.icon className="h-4 w-4" />
@@ -75,7 +73,7 @@ export default function SettingsPage() {
             </motion.div>
 
             {/* Content */}
-            <motion.div variants={itemVariants} className="glass-card rounded-3xl p-8 shadow-xl shadow-slate-200/50 dark:shadow-none">
+            <motion.div variants={itemVariants}>
                 {activeTab === "profile" && (
                     <ProfileForm
                         defaultValues={{
