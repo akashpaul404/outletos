@@ -71,3 +71,6 @@ export default defineConfig([
   },
 ])
 ```
+
+<img width="1919" height="904" alt="image" src="https://github.com/user-attachments/assets/894197dc-5041-4fc7-a266-079eb8602d63" />
+
