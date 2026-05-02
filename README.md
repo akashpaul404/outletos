@@ -1,3 +1,5 @@
+<img width="1919" height="904" alt="image" src="https://github.com/user-attachments/assets/15dbde0c-51f0-4ff2-a278-3e8a875743bb" />
+
 # OutletOS
 
 Welcome to the OutletOS project!  
